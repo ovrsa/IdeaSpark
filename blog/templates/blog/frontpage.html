@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %} {% block content %}{% for post in posts %}
+<div class="post block">
+    <h2 class="subtitle">{{ post.title }}</h2>
+    <small>Posted at {{post.posted}}</small>
+    <p>{{post.intro}}</p>
+    <!-- urls.pyで定義したpost_detailのURLにpost.slugを渡している -->
+    <a href="{% url 'post_detail' post.slug %}">More</a>
+    <hr>
+</div>
+{% endfor %}
+{% endblock %}
